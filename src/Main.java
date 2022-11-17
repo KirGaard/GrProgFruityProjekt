@@ -7,5 +7,9 @@ public class Main {
         System.out.println("Omar");
 
         System.out.println("Victor");
+
+        System.out.println("Loading Database");
+
+
     }
 }
