@@ -1,5 +1,6 @@
 package Presentation;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class LoginUI implements IPresenter {
@@ -10,16 +11,18 @@ public class LoginUI implements IPresenter {
 
     @Override
     public void init() {
-        System.out.println("Welcome to iFruity, please provide the according username and password for the user you want to use");
+        System.out.println("Welcome to iFruity, please provide login information");
         System.out.println("Username:");
         Scanner scanner = new Scanner(System.in);
         String username = scanner.nextLine();
-        if (username == "") {
+        if (Objects.equals(username, "")) {
+            System.out.println("Login failed");
             throw new NullPointerException("Invalid username");
         }
         System.out.println("Password:");
         String password = scanner.nextLine();
-        if (password == "") {
+        if (Objects.equals(password, "")) {
+            System.out.println("Login failed");
             throw new NullPointerException("Invalid password");
         }
         System.out.println("Login success");
