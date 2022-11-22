@@ -28,5 +28,17 @@ public class User {
     public void changePassword (String password) {
         this.password = password;
     }
+
+    String getName () {
+        return name;
+    }
+
+    String getPassword () {
+        return password;
+    }
+
+    List<String> getFavoriteTitles () {
+        return favoriteTitles;
+    }
 }
 
