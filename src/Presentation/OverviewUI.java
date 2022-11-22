@@ -1,6 +1,7 @@
 package Presentation;
 
 import Database.MediaDatabase;
+import Media.Media;
 
 import java.util.Scanner;
 
@@ -13,9 +14,13 @@ public class OverviewUI implements IPresenter {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().toLowerCase();
         if (input.equals("films")) {
-            mediaDatabase.getFilms();
+            for (Media media : mediaDatabase.getFilms()) {
+                System.out.println(media.getTitle());
+            }
         } else if (input.equals("shows")) {
-            mediaDatabase.getShows();
+            for (Media media : mediaDatabase.getShows()) {
+                System.out.println(media.getTitle());
+            }
         } else {
             throw new IllegalArgumentException("Invalid argument, please choose films or movies");
         }
