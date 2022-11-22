@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DataParser {
+public class TxtToJSONParser {
 
     public static void movieTxtToJSON() throws FileNotFoundException {
         File file = new File("Data\\film.txt");
@@ -131,17 +131,6 @@ public class DataParser {
 
     private static String RemoveUnnecessarySpaces(String string){
         return string.replaceAll("; *", ";");
-    }
-
-
-    static public void getMovies(){
-
-        // Et eller andet kode....
-
-
-
-
-
     }
 
 
