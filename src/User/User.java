@@ -29,15 +29,15 @@ public class User {
         this.password = password;
     }
 
-    String getName () {
+    public String getName () {
         return name;
     }
 
-    String getPassword () {
+    public String getPassword () {
         return password;
     }
 
-    List<String> getFavoriteTitles () {
+    public List<String> getFavoriteTitles () {
         return favoriteTitles;
     }
 }
