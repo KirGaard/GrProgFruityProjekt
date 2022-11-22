@@ -31,7 +31,7 @@ public class JSONParser {
         return media;
     }
 
-    public static List<Media> getShow(){
+    public static List<Media> getShows(){
         Gson parser = new Gson();
         String json = new FileHandler(showPath).readFile();
 
