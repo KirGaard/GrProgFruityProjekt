@@ -134,6 +134,17 @@ public class DataParser {
     }
 
 
+    static public void getMovies(){
+
+        // Et eller andet kode....
+
+
+
+
+
+    }
+
+
 }
 
 
