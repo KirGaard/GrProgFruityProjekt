@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class LoginUI implements IPresenter {
     public static void main(String[] args) {
-        LoginUI loginUI = new LoginUI();
-        loginUI.init();
+        /*LoginUI loginUI = new LoginUI();
+        loginUI.init();*/
+        OverviewUI overviewUI = new OverviewUI();
+        overviewUI.init();
     }
 
     @Override
