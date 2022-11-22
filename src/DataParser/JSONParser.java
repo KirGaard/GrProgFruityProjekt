@@ -3,14 +3,18 @@ package DataParser;
 import Media.Media;
 import Media.Film;
 import Media.Show;
+import User.User;
 import com.google.gson.Gson;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JSONParser {
-    private static final String filmPath = "Data\\parsedFilm.json";
-    private static final String showPath = "Data\\parsedSeries.json";
+    private static final String filmPath = "Data/parsedFilm.json";
+    private static final String showPath = "Data/parsedSeries.json";
+
+    private static final String usersPath = "Data/Users";
 
     private class FilmStorer{
         List<Film> list;
@@ -41,9 +45,24 @@ public class JSONParser {
         return media;
     }
 
+    public List<User> getUsers(){
+        File userFolder = new File(usersPath);
+        File[] listOfUserFiles = userFolder.listFiles();
+
+        List users = new ArrayList<User>();
+
+        for (File file : listOfUserFiles){
 
 
 
+        }
+
+        return users;
+    }
+
+    public void saveUser(User user){
+
+    }
 
 
 }
