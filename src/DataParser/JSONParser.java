@@ -12,9 +12,9 @@ import java.util.List;
 
 public class JSONParser {
     private static final String filmPath = "Data/parsedFilm.json";
-    private static final String showPath = "Data\\parsedSeries.json";
+    private static final String showPath = "Data/parsedSeries.json";
 
-    private static final String usersPath = "Data\\Users";
+    private static final String usersPath = "Data/Users";
 
     private class FilmStorer{
         List<Film> list;
