@@ -14,7 +14,7 @@ public class JSONParser {
     private static final String filmPath = "Data/parsedFilm.json";
     private static final String showPath = "Data/parsedSeries.json";
 
-    private static final String usersPath = "Data/Users";
+    private static final String usersPath = "Data/Users/";
 
     private class FilmStorer{
         List<Film> list;
@@ -48,20 +48,24 @@ public class JSONParser {
     public List<User> getUsers(){
         File userFolder = new File(usersPath);
         File[] listOfUserFiles = userFolder.listFiles();
+        Gson parser = new Gson();
 
         List users = new ArrayList<User>();
 
         for (File file : listOfUserFiles){
-
-
-
+                FileHandler fileHandler = new FileHandler(usersPath + file.getName());
+                users.add(parser.fromJson(fileHandler.readFile(), User.class));
         }
 
         return users;
     }
 
     public void saveUser(User user){
+        String userPath = usersPath + user.getName() + ".json";
+        Gson parser = new Gson();
 
+        String json = parser.toJson(user);
+        new FileHandler(userPath).writeFile(json);
     }
 
 
