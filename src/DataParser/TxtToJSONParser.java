@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DataParser {
+public class TxtToJSONParser {
 
     public static void movieTxtToJSON() throws FileNotFoundException {
         File file = new File("Data\\film.txt");
@@ -119,14 +119,8 @@ public class DataParser {
 
 
     private static void writeToJSONFile(String filename, String input){
-            try {
-                FileWriter fileWriter = new FileWriter("Data\\" + filename+ ".json");
-                fileWriter.write(input);
-                fileWriter.close();
-            } catch (IOException e) {
-                System.out.println("An error occurred creating JsonFile.");
-                e.printStackTrace();
-            }
+        String path = "Data\\" + filename+ ".json";
+        new FileHandler(path).writeFile(input);
     }
 
     private static String RemoveUnnecessarySpaces(String string){
