@@ -8,7 +8,17 @@ public abstract class Media {
     protected double rating;
     protected List<String> genre;
 
-    String getInfo() {
-        throw new RuntimeException();
+    public String getInfo() { throw new RuntimeException(); }
+    public String getTitle() {
+        return title;
+    }
+    public String getRelease() {
+        return release;
+    }
+    public double getRating() {
+        return rating;
+    }
+    public List<String> getGenre() {
+        return genre;
     }
 }
