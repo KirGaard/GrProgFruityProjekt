@@ -45,7 +45,7 @@ public class JSONParser {
         return media;
     }
 
-    public List<User> getUsers(){
+    public static List<User> getUsers(){
         File userFolder = new File(usersPath);
         File[] listOfUserFiles = userFolder.listFiles();
         Gson parser = new Gson();
@@ -60,7 +60,7 @@ public class JSONParser {
         return users;
     }
 
-    public void saveUser(User user){
+    public static void saveUser(User user){
         String userPath = usersPath + user.getName() + ".json";
         Gson parser = new Gson();
 
