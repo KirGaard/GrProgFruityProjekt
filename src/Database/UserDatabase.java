@@ -3,6 +3,7 @@ package Database;
 import DataParser.JSONParser;
 import User.User;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class UserDatabase {
@@ -15,7 +16,13 @@ public class UserDatabase {
     public List<User> getUsers(){
         return users;
     }
+    public boolean ContainsUser(String name){
+        boolean found = false;
 
+        for (User user : users) if (user.getName().equals(name)) found = true;
+
+        return found;
+    }
     public void saveDatabase(){
         users.forEach(user -> JSONParser.saveUser(user));
     }
