@@ -31,6 +31,10 @@ public class UserDatabase {
     public void saveDatabase(){
         users.forEach(user -> JSONParser.saveUser(user));
     }
-
+    public void deleteUser(User user) throws UserNotInDatabaseException{
+        if (!ContainsUser(user.getName())) throw new UserNotInDatabaseException(user);
+        JSONParser.deleteUser(user.getName());
+        users.remove(user);
+    }
 
 }
