@@ -29,15 +29,25 @@ public class MediaDatabase {
     public List<Media> getFilms(){
         return films;
     }
-
     public List<Media> getShows(){
         return shows;
     }
-
     public List<Media> getAllMedia(){
         return media;
     }
 
+    private List<String> allMediaByTitle(){
+        List out = new ArrayList<String>();
+        media.forEach(media -> out.add(media.getTitle()));
+        return out;
+    }
+    public Media getMediaByTitle(String title) throws MediaNotInDatabaseException{
+        List<String> allTitles = allMediaByTitle();
+        if (!allTitles.contains(title)) throw new MediaNotInDatabaseException(title);
 
+        int indexOfTitle = allTitles.indexOf(title);
+        return media.get(indexOfTitle);
+
+    }
 
 }
