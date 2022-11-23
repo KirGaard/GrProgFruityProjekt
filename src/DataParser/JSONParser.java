@@ -68,5 +68,11 @@ public class JSONParser {
         new FileHandler(userPath).writeFile(json);
     }
 
+    public static void deleteUser(String userName){
+        String path = usersPath + userName + ".json";
+        File userFile = new File(path);
+
+        if(!userFile.delete()) throw new RuntimeException("Failed to delete user: " + userName);
+    }
 
 }
