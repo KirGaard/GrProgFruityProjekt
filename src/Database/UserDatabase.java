@@ -23,6 +23,11 @@ public class UserDatabase {
 
         return found;
     }
+    public void addUser(User user){
+        users.add(user);
+        saveDatabase();
+    }
+
     public void saveDatabase(){
         users.forEach(user -> JSONParser.saveUser(user));
     }
