@@ -10,7 +10,7 @@ public class UserDatabase {
     private List<User> users;
 
     public UserDatabase(){
-        JSONParser.getUsers();
+        users = JSONParser.getUsers();
     }
 
     public List<User> getUsers(){
