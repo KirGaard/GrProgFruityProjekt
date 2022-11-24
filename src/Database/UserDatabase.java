@@ -1,5 +1,6 @@
 package Database;
 
+import DataAccess.DataAccessor;
 import DataParser.JSONParser;
 import User.User;
 
@@ -10,7 +11,9 @@ public class UserDatabase {
     private List<User> users;
 
     public UserDatabase(){
-        users = JSONParser.getUsers();
+        DataAccessor dataAccessor = new DataAccessor();
+
+        users = dataAccessor.getUsers();
     }
 
     public List<User> getUsers(){

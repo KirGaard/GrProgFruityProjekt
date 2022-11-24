@@ -25,7 +25,7 @@ public class JSONParser {
     }
 
 
-    public static List<Media> getFilms(){
+    public static List<Media> loadFilms(){
         Gson parser = new Gson();
         String json = new FileHandler(filmPath).readFile();
 
@@ -35,7 +35,7 @@ public class JSONParser {
         return media;
     }
 
-    public static List<Media> getShows(){
+    public static List<Media> loadShows(){
         Gson parser = new Gson();
         String json = new FileHandler(showPath).readFile();
 
@@ -45,7 +45,7 @@ public class JSONParser {
         return media;
     }
 
-    public static List<User> getUsers(){
+    public static List<User> loadUsers(){
         File userFolder = new File(usersPath);
         File[] listOfUserFiles = userFolder.listFiles();
         Gson parser = new Gson();

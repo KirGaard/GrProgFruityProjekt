@@ -1,5 +1,6 @@
 package Database;
 
+import DataAccess.DataAccessor;
 import DataParser.JSONParser;
 import Media.Film;
 import Media.Media;
@@ -15,8 +16,10 @@ public class MediaDatabase {
     private List<Media> media;
 
     public MediaDatabase(){
-        this.films = JSONParser.getFilms();
-        this.shows = JSONParser.getShows();
+        DataAccessor dataAccessor = new DataAccessor();
+
+        this.films = dataAccessor.getFilms();
+        this.shows = dataAccessor.getShows();
 
         List media = new ArrayList<Media>();
         media.addAll(this.films);
