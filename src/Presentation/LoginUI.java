@@ -11,8 +11,7 @@ public class LoginUI implements IPresenter {
         loginUI.init();
         OverviewUI overviewUI = new OverviewUI();
         overviewUI.init();
-        DisplayUI displayUI = new DisplayUI();
-        displayUI.init();
+
     }
 
     public void init() {
