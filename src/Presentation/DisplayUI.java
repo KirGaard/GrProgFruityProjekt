@@ -11,7 +11,11 @@ public class DisplayUI implements IPresenter {
         MediaDatabase mediaDatabase = new MediaDatabase();
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-
+        try {
+            System.out.println(mediaDatabase.getMediaByTitle(input).getGenre());
+        } catch (MediaNotInDatabaseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
