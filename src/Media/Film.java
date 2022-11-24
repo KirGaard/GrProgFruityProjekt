@@ -4,6 +4,6 @@ import java.util.List;
 
 public class Film extends Media {
     public String getInfo() {
-        throw new RuntimeException();
+        return title + release + genre + rating;
     }
 }
