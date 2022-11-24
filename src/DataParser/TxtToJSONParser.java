@@ -19,7 +19,7 @@ public class TxtToJSONParser {
             String[] DataElements = line.split(";");
             String[] categories = new String[]{
                     "title",
-                    "releaseDate",
+                    "release",
                     "genre",
                     "rating"
             };
@@ -64,7 +64,7 @@ public class TxtToJSONParser {
             String[] dataElements = line.split(";");
             String[] categories = new String[]{
                     "title",
-                    "runTime",
+                    "release",
                     "genre",
                     "rating",
                     "seasons"
