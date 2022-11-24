@@ -4,6 +4,6 @@ import java.util.List;
 
 public class Film extends Media {
     public String getInfo() {
-        return title + release + genre + rating;
+        return "Title: " + title + " Release date: " + release + " Genre: " + genre + " Rating: " +  rating;
     }
 }
