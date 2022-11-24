@@ -44,6 +44,10 @@ public class MediaDatabase {
         media.forEach(media -> out.add(media.getTitle()));
         return out;
     }
+    public boolean containsTitle(String mediaTitle){
+        return allMediaByTitle().contains(mediaTitle);
+    }
+
     public Media getMediaByTitle(String title) throws MediaNotInDatabaseException{
         List<String> allTitles = allMediaByTitle();
         if (!allTitles.contains(title)) throw new MediaNotInDatabaseException(title);
