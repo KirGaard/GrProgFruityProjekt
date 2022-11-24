@@ -3,7 +3,7 @@ package Media;
 import java.util.List;
 
 public class Show extends Media {
-    private String seasons;
+    private List <String> seasons;
     public String getInfo() {
         return title + " " + release + " " + genre + " " + rating + " " + seasons;
     }
