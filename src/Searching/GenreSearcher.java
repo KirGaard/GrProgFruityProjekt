@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TitleSearcher extends Searcher {
-    public TitleSearcher(List<Media> mediaList) {
+public class GenreSearcher extends Searcher{
+    public GenreSearcher(List<Media> mediaList) {
         super(mediaList);
     }
 
@@ -19,14 +19,16 @@ public class TitleSearcher extends Searcher {
         List<Media> matchingMedia = new ArrayList<Media>();
         for (Media media : mediaList) {
 
-            Matcher matcher = pattern.matcher(media.getTitle());
-            if (matcher.find()) matchingMedia.add(media);
+            for (String genre : media.getGenre()){
+                Matcher matcher = pattern.matcher(genre);
+                if (matcher.find()){
+                    matchingMedia.add(media);
+                    break;
+                }
+            }
+
         }
 
         return matchingMedia;
-
     }
-
-
-
 }
