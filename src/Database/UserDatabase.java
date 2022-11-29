@@ -31,6 +31,14 @@ public class UserDatabase {
         saveDatabase();
     }
 
+    public User getUserByName(String username) throws UsernameNotInDatabaseException{
+        for (User user : users) {
+            if (user.getName().equals(username)) return user;
+        }
+
+        throw new UsernameNotInDatabaseException(username);
+    }
+
     public void saveDatabase(){
         users.forEach(user -> JSONParser.saveUser(user));
     }
