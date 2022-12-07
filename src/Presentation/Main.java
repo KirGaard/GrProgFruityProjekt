@@ -24,4 +24,8 @@ public class Main extends Application {
         stage.setMaximized(true);
         stage.show();
     }
+
+    public static void signIn() {
+        System.out.print("Signing in...");
+    }
 }

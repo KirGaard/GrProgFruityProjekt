@@ -32,20 +32,69 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="rootBox" maxHeight="1080.0" maxWidth="1907.0" minHeight="100.0" minWidth="200.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Login.LoginController">
   <children>
-      <AnchorPane>
+      <AnchorPane maxHeight="1450.0" maxWidth="2580.0" prefHeight="1100.0" prefWidth="2003.0">
          <children>
-            <ImageView fx:id="backgroundImage" fitHeight="1100.0" fitWidth="1927.0" layoutX="-6.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backgroundImage" fitHeight="1470.0" fitWidth="2570.0" layoutX="-6.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@background.png" />
                </image>
             </ImageView>
+            <AnchorPane layoutX="951.0" layoutY="468.0" minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="638.0" style="-fx-background-color: E73D94;">
+               <children>
+                  <Pane layoutX="29.0" layoutY="390.0" prefHeight="120.0" prefWidth="580.0" style="-fx-background-color: white;">
+                     <children>
+                        <TextField layoutX="2.0" layoutY="8.0" prefHeight="104.0" prefWidth="570.0" promptText="Password" style="-fx-background-color: white;">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="816.0" layoutY="438.0" prefHeight="878.0" prefWidth="848.0" />
+                  <Button layoutX="62.0" layoutY="560.0" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="519.0" style="-fx-background-color: E764A7;" stylesheets="@../CSS/ElementChangeColorHover.css" text="Sign in" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Button>
+                  <Hyperlink layoutX="266.0" layoutY="662.0" onAction="#signUp" prefHeight="95.0" prefWidth="197.0" style="-fx-font-weight: bold;" text="Sign up now" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label layoutX="61.0" layoutY="670.0" prefHeight="79.0" prefWidth="208.0" text="New to iFruity?" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="29.0" layoutY="214.0" prefHeight="120.0" prefWidth="580.0" style="-fx-background-color: white;">
+                     <children>
+                        <TextField layoutX="1.0" layoutY="14.0" prefHeight="98.0" prefWidth="568.0" promptText="Username" style="-fx-background-color: white;">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+                  <Label layoutX="140.0" layoutY="8.0" prefHeight="141.0" prefWidth="365.0" text="Sign in" textFill="WHITE">
+                     <font>
+                        <Font size="120.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
   </children>
