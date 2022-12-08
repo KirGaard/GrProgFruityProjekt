@@ -43,4 +43,11 @@ class MediaDatabaseTest {
                 mediaDatabase.getMediaByTitle("Avatar 2"));
         assertEquals("Avatar 2", exception.getMessage());
     }
+
+    @Test
+    void successfullyThrowsMediaNotInDataBaseExceptionIfTitleIncorrectlyCapitalized() {
+        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
+                mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
+        assertEquals("raIderS oF ThE loST ARK", exception.getMessage());
+    }
 }
