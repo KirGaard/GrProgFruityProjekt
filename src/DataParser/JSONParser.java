@@ -78,5 +78,4 @@ public class JSONParser {
 
         if(!userFile.delete()) throw new RuntimeException("Failed to delete user: " + userName);
     }
-
 }
