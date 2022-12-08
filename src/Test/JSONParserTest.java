@@ -3,7 +3,11 @@ package Test;
 import DataParser.FileHandler;
 import DataParser.JSONParser;
 import Media.Media;
+import User.User;
 import com.google.gson.Gson;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
