@@ -1,15 +1,19 @@
 package Presentation;
 
+import Database.MediaDatabase;
+import Database.MediaNotInDatabaseException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class Main extends Application {
     public static void main(String[] args) {
-        launch(args);
+        MediaDatabase mediaDatabase = new MediaDatabase();
     }
-
     /**
      * @param stage
      * @throws Exception
