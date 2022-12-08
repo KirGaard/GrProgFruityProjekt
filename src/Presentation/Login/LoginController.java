@@ -5,6 +5,7 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
@@ -19,11 +20,15 @@ public class LoginController {
 
     @FXML
     private ImageView backgroundImage;
+
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
     @FXML
     private void initialize()
     {
         System.out.println("Initializing LOGIN");
-        System.out.println(backgroundImage.getImage().getUrl());
     }
 
     @FXML
@@ -43,10 +48,13 @@ public class LoginController {
     }
 
     @FXML
-    private void changeColorOnMouseEnter() {
-        
-    }
+    private boolean ValidateLogin(){
+        String username = usernameField.getText();
+        String password = passwordField.getText();
 
+        // Validate login
+        throw new RuntimeException("Not implemented yet");
+    }
 
 
 

@@ -32,70 +32,83 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootBox" maxHeight="1080.0" maxWidth="1907.0" minHeight="100.0" minWidth="200.0" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Login.LoginController">
+<VBox fx:id="rootBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="300.0" minWidth="200.0" prefHeight="540.0" prefWidth="960.0" styleClass="bgElement" stylesheets="@../CSS/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.Login.LoginController">
   <children>
-      <AnchorPane maxHeight="1450.0" maxWidth="2580.0" prefHeight="1100.0" prefWidth="2003.0">
+      <GridPane alignment="CENTER" maxHeight="500.0" maxWidth="400.0" minHeight="200.0" minWidth="100.0" prefHeight="500.0" prefWidth="300.0" styleClass="menu" stylesheets="@../CSS/Login.css">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <ImageView fx:id="backgroundImage" fitHeight="1470.0" fitWidth="2570.0" layoutX="-6.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@background.png" />
-               </image>
-            </ImageView>
-            <AnchorPane layoutX="951.0" layoutY="468.0" minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="638.0" style="-fx-background-color: E73D94;">
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Sign in" textAlignment="JUSTIFY" textFill="WHITE">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Username" stylesheets="@../CSS/Login.css" GridPane.rowIndex="1">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <PasswordField fx:id="passwordField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Password" stylesheets="@../CSS/Login.css" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </PasswordField>
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ValidateLogin" stylesheets="@../CSS/Login.css" text="Sign in" textAlignment="CENTER" textFill="#e73d94" underline="true" GridPane.rowIndex="3">
+               <font>
+                  <Font size="64.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="70.0" right="70.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="4">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="233.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.0" minWidth="10.0" prefWidth="165.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Pane layoutX="29.0" layoutY="390.0" prefHeight="120.0" prefWidth="580.0" style="-fx-background-color: white;">
-                     <children>
-                        <TextField layoutX="2.0" layoutY="8.0" prefHeight="104.0" prefWidth="570.0" promptText="Password" style="-fx-background-color: white;">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="816.0" layoutY="438.0" prefHeight="878.0" prefWidth="848.0" />
-                  <Button layoutX="62.0" layoutY="560.0" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="519.0" style="-fx-background-color: E764A7;" stylesheets="@../CSS/ElementChangeColorHover.css" text="Sign in" textAlignment="CENTER" textFill="WHITE">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="New to iFruity?" textFill="WHITE">
                      <font>
-                        <Font size="48.0" />
+                        <Font size="30.0" />
                      </font>
-                  </Button>
-                  <Hyperlink layoutX="266.0" layoutY="662.0" onAction="#signUp" prefHeight="95.0" prefWidth="197.0" style="-fx-font-weight: bold;" text="Sign up now" textFill="WHITE">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Hyperlink maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#signUp" style="-fx-font-weight: bold;" text="Sign up now" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Hyperlink>
-                  <Label layoutX="61.0" layoutY="670.0" prefHeight="79.0" prefWidth="208.0" text="New to iFruity?" textFill="WHITE">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <Pane layoutX="29.0" layoutY="214.0" prefHeight="120.0" prefWidth="580.0" style="-fx-background-color: white;">
-                     <children>
-                        <TextField layoutX="1.0" layoutY="14.0" prefHeight="98.0" prefWidth="568.0" promptText="Username" style="-fx-background-color: white;">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Label layoutX="140.0" layoutY="8.0" prefHeight="141.0" prefWidth="365.0" text="Sign in" textFill="WHITE">
-                     <font>
-                        <Font size="120.0" />
-                     </font>
-                  </Label>
                </children>
-            </AnchorPane>
+            </GridPane>
          </children>
-      </AnchorPane>
+      </GridPane>
   </children>
 </VBox>
