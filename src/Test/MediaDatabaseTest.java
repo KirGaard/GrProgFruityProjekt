@@ -38,7 +38,7 @@ class MediaDatabaseTest {
     }
 
     @Test
-    void successfullyThrowsMediaNotInDatabaseException() {
+    void successfullyThrowsMediaNotInDatabaseExceptionIfTitleIsNotInMedia() {
         Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
                 mediaDatabase.getMediaByTitle("Avatar 2"));
         assertEquals("Avatar 2", exception.getMessage());

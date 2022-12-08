@@ -2,6 +2,7 @@ package Test;
 
 import DataParser.FileHandler;
 import DataParser.JSONParser;
+import Database.MediaNotInDatabaseException;
 import Media.Media;
 import User.User;
 import com.google.gson.Gson;
@@ -14,32 +15,41 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JSONParserTest {
+    private JSONParser jsonParser;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
+        jsonParser = new JSONParser();
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown() {
+        jsonParser = null;
     }
 
-    @org.junit.jupiter.api.Test
-    void loadFilmsMediaEmpty() {
+    @Test
+    void loadFilms() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void loadShows() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void loadUsers() {
     }
 
-    @org.junit.jupiter.api.Test
-    void saveUser() {
+    @Test
+    void saveUsernameWithJson() {
+        /*User userName = "omar.json";
+        jsonParser.saveUser(userName)*/
     }
 
-    @org.junit.jupiter.api.Test
-    void deleteUser() {
+    @Test
+    void SuccessThrowsRuntimeExceptionIfUserIsNull() {
+        String userName = "";
+        Throwable exception = assertThrows(RuntimeException.class, () ->
+                jsonParser.deleteUser(userName));
+        assertEquals("Failed to delete user: " + userName, exception.getMessage());
     }
 }
