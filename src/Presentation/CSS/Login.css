@@ -1,0 +1,37 @@
+.button:hover {
+    -fx-text-fill: black;
+}
+.button{
+    -fx-background-color: white;
+    -fx-text-fill: #E73D94;
+    -fx-background-radius: 20, 20, 20, 20;
+    -fx-font-size: 36;
+}
+
+.root {
+    -fx-background-image: url("background.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+.menu{
+    -fx-background-color: #E73D94;
+    -fx-background-radius: 20, 20, 20, 20;
+}
+.text-field{
+    -fx-background-color: white;
+    -fx-background-radius: 20, 20, 20, 20;
+    -fx-font-size: 30;
+}
+.password-field{
+    -fx-background-color: white;
+    -fx-background-radius: 20, 20, 20, 20;
+    -fx-font-size: 30;
+}
+.hyperlink{
+    -fx-font-size: 20;
+    -fx-underline: true;
+}
+.black-box{
+    -fx-background-color: black;
+    -fx-opacity: 0.6;
+}
