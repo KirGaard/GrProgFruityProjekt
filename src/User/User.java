@@ -7,6 +7,11 @@ public class User {
     private String password;
     private List<String> favoriteTitles;
 
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     public void addFavorite(String favorite) {
         favoriteTitles.add(favorite);
     }

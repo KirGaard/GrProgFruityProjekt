@@ -46,19 +46,19 @@ public class LoginController implements IController {
 
     @FXML
     public void exit() throws IOException {
+        try {
+            validateLogin();
+        } catch (InvalidUserException e) {
+            System.out.println(e.getMessage());
+        }
         Main.signIn();
     }
 
     @FXML
-    private boolean validateLogin(){
-
+    private void validateLogin() throws InvalidUserException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-
-        // Validate login
-        throw new RuntimeException("Not implemented yet");
+        if (!userDatabase.ContainsUser(username)) { throw new InvalidUserException(); }
+        if (!userDatabase.getUser(username).getPassword().equals(password)) { throw new InvalidUserException(); }
     }
-
-
-
 }
