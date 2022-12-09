@@ -28,34 +28,18 @@ class JSONParserTest {
     }
 
     @Test
-    void loadFilms() {
-    }
-
-    @Test
-    void loadShows() {
-    }
-
-    @Test
-    void loadUsers() {
-    }
-
-    @Test
-    void saveUser() {
-    }
-
-    @Test
-    void usernameIsEmptyStringTest() {
-        String userName = "";
+    void deleteUsernameIsEmptyStringTest() {
+        String username = "";
         Throwable exception = assertThrows(RuntimeException.class, () ->
-                jsonParser.deleteUser(userName));
-        assertEquals("Failed to delete user: " + userName, exception.getMessage());
+                jsonParser.deleteUser(username));
+        assertEquals("Failed to delete user: " + username, exception.getMessage());
     }
 
     @Test
-    void usernameIsNullTest() {
-        String userName = null;
+    void deleteUsernameIsNullTest() {
+        String username = null;
         Throwable exception = assertThrows(RuntimeException.class, () ->
-                jsonParser.deleteUser(userName));
-        assertEquals("Failed to delete user: " + userName, exception.getMessage());
+                jsonParser.deleteUser(username));
+        assertEquals("Failed to delete user: " + username, exception.getMessage());
     }
 }
