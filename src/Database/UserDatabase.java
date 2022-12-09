@@ -16,9 +16,15 @@ public class UserDatabase {
         users = dataAccessor.getUsers();
     }
 
-    public List<User> getUsers(){
-        return users;
+    public User getUser(String name){
+        for(User user : users){
+            if (user.getName().equals(name)){
+                return user;
+            }
+        }
+        throw new RuntimeException("Username not in database");
     }
+
     public boolean ContainsUser(String name){
         boolean found = false;
 
