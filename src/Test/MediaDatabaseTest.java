@@ -38,14 +38,14 @@ class MediaDatabaseTest {
     }
 
     @Test
-    void successfullyThrowsMediaNotInDatabaseExceptionIfTitleIsNotInMedia() {
+    void titleNotInMediaTest() {
         Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
                 mediaDatabase.getMediaByTitle("Avatar 2"));
         assertEquals("Avatar 2", exception.getMessage());
     }
 
     @Test
-    void successfullyThrowsMediaNotInDataBaseExceptionIfTitleIncorrectlyCapitalized() {
+    void titleCapitalizationTest() {
         Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
                 mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
         assertEquals("raIderS oF ThE loST ARK", exception.getMessage());

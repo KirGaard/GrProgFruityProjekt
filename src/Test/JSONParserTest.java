@@ -36,14 +36,20 @@ class JSONParserTest {
     }
 
     @Test
-    void saveUsernameWithJson() {
-        /*User userName = "omar.json";
-        jsonParser.saveUser(userName)*/
+    void saveUser() {
     }
 
     @Test
-    void SuccessThrowsRuntimeExceptionIfUserIsNull() {
+    void usernameIsEmptyStringTest() {
         String userName = "";
+        Throwable exception = assertThrows(RuntimeException.class, () ->
+                jsonParser.deleteUser(userName));
+        assertEquals("Failed to delete user: " + userName, exception.getMessage());
+    }
+
+    @Test
+    void usernameIsNullTest() {
+        String userName = null;
         Throwable exception = assertThrows(RuntimeException.class, () ->
                 jsonParser.deleteUser(userName));
         assertEquals("Failed to delete user: " + userName, exception.getMessage());
