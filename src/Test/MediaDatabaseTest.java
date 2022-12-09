@@ -22,22 +22,6 @@ class MediaDatabaseTest {
     }
 
     @Test
-    void successfullyGetsFilms() {
-    }
-
-    @Test
-    void getShows() {
-    }
-
-    @Test
-    void getAllMedia() {
-    }
-
-    @Test
-    void containsTitle() {
-    }
-
-    @Test
     void titleNotInMediaTest() {
         Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
                 mediaDatabase.getMediaByTitle("Avatar 2"));
@@ -49,5 +33,12 @@ class MediaDatabaseTest {
         Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
                 mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
         assertEquals("raIderS oF ThE loST ARK", exception.getMessage());
+    }
+
+    @Test
+    void titleLetterSpacesTest() {
+        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
+                mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
+        assertEquals("RaidersOfTheLostArk", exception.getMessage());
     }
 }
