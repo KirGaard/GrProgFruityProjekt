@@ -22,6 +22,22 @@ class MediaDatabaseTest {
     }
 
     @Test
+    void successfullyGetsFilms() {
+    }
+
+    @Test
+    void getShows() {
+    }
+
+    @Test
+    void getAllMedia() {
+    }
+
+    @Test
+    void containsTitle() {
+    }
+
+    @Test
     void titleNotInMediaTest() {
         assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("Avatar 2"));
     }
