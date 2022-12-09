@@ -1,5 +1,6 @@
 package Presentation.Login;
 
+import Database.UserDatabase;
 import Presentation.IController;
 import Presentation.Main;
 import javafx.beans.InvalidationListener;
@@ -27,9 +28,12 @@ public class LoginController implements IController {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+
+    UserDatabase userDatabase;
+
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
+        userDatabase = new UserDatabase();
         System.out.println("Initializing LOGIN");
     }
 
