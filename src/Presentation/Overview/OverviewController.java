@@ -1,13 +1,19 @@
 package Presentation.Overview;
 
+import Presentation.IController;
 import javafx.fxml.FXML;
 
-public class OverviewController {
+public class OverviewController implements IController {
 
     @FXML
-    private void initialize()
+    public void initialize()
     {
         System.out.println("Initializing Overview");
+    }
+
+    @Override
+    public void exit() {
+
     }
 
 }

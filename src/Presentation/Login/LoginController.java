@@ -1,5 +1,6 @@
 package Presentation.Login;
 
+import Presentation.IController;
 import Presentation.Main;
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
@@ -17,7 +18,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 
-public class LoginController {
+public class LoginController implements IController {
 
     @FXML
     private ImageView backgroundImage;
@@ -27,7 +28,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    private void initialize()
+    public void initialize()
     {
         System.out.println("Initializing LOGIN");
     }
@@ -44,12 +45,13 @@ public class LoginController {
     }
 
     @FXML
-    private void exit() {
+    public void exit() throws IOException {
         Main.signIn();
     }
 
     @FXML
-    private boolean ValidateLogin(){
+    private boolean validateLogin(){
+
         String username = usernameField.getText();
         String password = passwordField.getText();
 
