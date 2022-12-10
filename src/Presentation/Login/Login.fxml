@@ -76,7 +76,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </PasswordField>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#ValidateLogin" stylesheets="@../CSS/Login.css" text="Sign in" textAlignment="CENTER" textFill="#e73d94" underline="true" GridPane.rowIndex="3">
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" stylesheets="@../CSS/Login.css" text="Sign in" textAlignment="CENTER" textFill="#e73d94" underline="true" GridPane.rowIndex="3">
                <font>
                   <Font size="64.0" />
                </font>

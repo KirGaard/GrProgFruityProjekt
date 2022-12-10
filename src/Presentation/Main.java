@@ -22,8 +22,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login/Login.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("Overview/Overview.fxml"));
 
         stage.setTitle("Hello World!");
         stage.setScene(new Scene(root));
@@ -35,7 +34,7 @@ public class Main extends Application {
 
     public static void signIn() throws IOException {
         System.out.print("Signing in...");
-        Parent overviewRoot = FXMLLoader.load(Main.class.getResource("Login/Login.fxml"));
+        Parent overviewRoot = FXMLLoader.load(Main.class.getResource("Overview/Overview.fxml"));
 
         mainStage.setTitle("Overview");
         mainStage.setScene(new Scene(overviewRoot));

@@ -1,4 +1,15 @@
 .menubar{
     -fx-background-color: #E73D94;
-    -fx-opacity: 0.7;
+    -fx-opacity: 1  ;
+}
+.background{
+    -fx-background-color: #262626;
+}
+.menubar-button{
+    -fx-background-color: transparent;
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+}
+.menubar-button:hover{
+    -fx-text-fill: black;
 }
