@@ -1,11 +1,15 @@
 package Presentation.Login;
 
+import Database.UserDatabase;
 import Presentation.IController;
 import Presentation.Main;
+import User.UserPrefs;
 import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -28,37 +32,47 @@ public class LoginController implements IController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    public void initialize()
-    {
+    private Label wrongInput;
+    UserDatabase userDatabase;
+
+    @FXML
+    public void initialize() {
+        userDatabase = Main.userDatabase;
         System.out.println("Initializing LOGIN");
+        wrongInput.setVisible(false);
     }
 
     @FXML
     private void signUp() {
+        Main.createNewUser();
+    }
+
+    @FXML
+    public void exit(){
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
         try {
-            Desktop.getDesktop().browse(new URL("https://www.google.com").toURI());
+            validateLogin(username, password);
+        } catch (InvalidUserException e) {
+            usernameField.setText("");
+            passwordField.setText("");
+            wrongInput.setVisible(true);
+
+            return;
+        }
+        UserPrefs.currentUser = userDatabase.getUser(username);
+        try {
+            Main.signIn();
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
 
-    @FXML
-    public void exit() throws IOException {
-        Main.signIn();
+    private void validateLogin(String username, String password) throws InvalidUserException {
+
+        if (!userDatabase.ContainsUser(username)) { throw new InvalidUserException(); }
+        if (!userDatabase.getUser(username).getPassword().equals(password)) { throw new InvalidUserException(); }
     }
-
-    @FXML
-    private boolean validateLogin(){
-
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        // Validate login
-        throw new RuntimeException("Not implemented yet");
-    }
-
-
 
 }

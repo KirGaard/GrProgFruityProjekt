@@ -13,6 +13,4 @@ public interface IDataAccess {
     public List<Media> getFilms();
     public List<Media> getShows();
 
-
-
 }

@@ -1,0 +1,25 @@
+.background{
+    -fx-background-color: #262626;
+}
+.star{
+    -fx-background-image: url("Icons/star_empty.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+}
+.title{
+    -fx-font-size: 38;
+    -fx-text-fill: white;
+    -fx-text-alignment: left;
+}
+.inspection-label{
+    -fx-font-size: 18;
+    -fx-text-fill: white;
+    -fx-alignment: left;
+}
+.poster{
+    -fx-background-image: url("Icons/arrow.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 200;
+}

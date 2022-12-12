@@ -12,4 +12,57 @@
 }
 .menubar-button:hover{
     -fx-text-fill: black;
+    -fx-background-color: #d33989;
 }
+.search-field{
+
+}
+.GUIElement{
+    -fx-background-image: url("Icons/arrow.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-underline: true;
+    -fx-background-size: 200;
+    -fx-background-color: transparent;
+    -fx-background-radius: 20 20 20 20;
+    -fx-font-size: 32;
+    -fx-text-fill: #E73D94;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+
+}
+.GUIElement:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
+.arrow-left{
+    -fx-background-image: url("Icons/arrow.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: white;
+    -fx-background-position: center;
+    -fx-opacity: 0.05;
+}
+.arrow-right{
+    -fx-background-image: url("Icons/arrow.png");
+    -fx-background-repeat: no-repeat;
+    -fx-rotate: 180;
+    -fx-background-color: white;
+    -fx-background-position: center;
+    -fx-opacity: 0.05;
+
+}
+.arrow-left:hover{
+    -fx-opacity: 1;
+}
+.arrow-right:hover{
+    -fx-opacity: 1;
+}
+.element-container{
+    -fx-opacity: 0;
+}
+
+.GUIElement-label{
+    -fx-font-size: 32;
+    -fx-text-fill: white;
+    -fx-text-alignment: left;
+}
+

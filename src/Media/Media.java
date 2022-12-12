@@ -3,17 +3,19 @@ package Media;
 import java.util.List;
 
 public abstract class Media {
+    protected String posterPath;
     protected String title;
     protected String release;
     protected double rating;
     protected List<String> genre;
 
-    public String getInfo() { throw new RuntimeException(); }
+    public abstract String getInfo();
     public String getTitle() {
         return title;
     }
+    public String getTitleNoSpace(){return title.replaceAll(" ", "_");}
     public String getRelease() {
-        return release;
+        return release.replaceAll(" ", "_");
     }
     public double getRating() {
         return rating;
@@ -21,4 +23,9 @@ public abstract class Media {
     public List<String> getGenre() {
         return genre;
     }
+    public String getGenreString(){
+        return ("" + genre).replaceAll(" ", "_");
+    }
+
+    public abstract String getPosterPath();
 }

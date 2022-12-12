@@ -14,12 +14,12 @@ public class TitleSearcher extends Searcher {
 
     @Override
     public List<Media> Search(String searchTerm) {
-        Pattern pattern = CreatePattern(searchTerm);
+        Pattern pattern = CreatePattern(searchTerm.toLowerCase());
 
         List<Media> matchingMedia = new ArrayList<Media>();
         for (Media media : mediaList) {
 
-            Matcher matcher = pattern.matcher(media.getTitle());
+            Matcher matcher = pattern.matcher(media.getTitle().toLowerCase());
             if (matcher.find()) matchingMedia.add(media);
         }
 

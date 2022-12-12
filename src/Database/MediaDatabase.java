@@ -54,7 +54,6 @@ public class MediaDatabase {
 
         int indexOfTitle = allTitles.indexOf(title);
         return media.get(indexOfTitle);
-
     }
 
 }

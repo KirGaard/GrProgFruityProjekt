@@ -9,7 +9,7 @@
 }
 
 .root {
-    -fx-background-image: url("background.png");
+    -fx-background-image: url("Icons/background.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }

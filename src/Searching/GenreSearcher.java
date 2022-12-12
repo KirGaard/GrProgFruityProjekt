@@ -14,13 +14,13 @@ public class GenreSearcher extends Searcher{
 
     @Override
     public List<Media> Search(String searchTerm) {
-        Pattern pattern = CreatePattern(searchTerm);
+        Pattern pattern = CreatePattern(searchTerm.toLowerCase());
 
         List<Media> matchingMedia = new ArrayList<Media>();
         for (Media media : mediaList) {
 
             for (String genre : media.getGenre()){
-                Matcher matcher = pattern.matcher(genre);
+                Matcher matcher = pattern.matcher(genre.toLowerCase());
                 if (matcher.find()){
                     matchingMedia.add(media);
                     break;

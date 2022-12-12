@@ -5,9 +5,10 @@ import Media.Media;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GenreSorter extends Sorter{
-    private HashMap<String, List<Media>> sortedMap;
+    private HashMap<String, ArrayList<Media>> sortedMap;
 
     public GenreSorter(List<Media> unsortedMediaList) {
         super(unsortedMediaList);
@@ -23,7 +24,7 @@ public class GenreSorter extends Sorter{
                 if (sortedMap.containsKey(genre)){
                     sortedMap.get(genre).add(media);
                 }else{
-                    List<Media> newList = new ArrayList<>();
+                    ArrayList<Media> newList = new ArrayList<>();
                     newList.add(media);
 
                     sortedMap.put(genre, newList);
@@ -32,8 +33,8 @@ public class GenreSorter extends Sorter{
         }
     }
 
-    public HashMap<String, List<Media>> getSortedMap(){
-        return sortedMap;
+    public List<Map.Entry<String, ArrayList<Media>>> getSortedEntryList(){
+        return sortedMap.entrySet().stream().toList();
 
 
     }

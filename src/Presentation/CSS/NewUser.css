@@ -1,0 +1,22 @@
+.background{
+    -fx-background-color: #262626;
+}
+.title{
+    -fx-font-size: 46;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+}
+.description-label{
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+}
+.input-field{
+    -fx-background-color: #313131;
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+}
+.create-button{
+    -fx-background-color: #252525;
+    -fx-text-fill: white;
+    -fx-font-size: 50;
+}

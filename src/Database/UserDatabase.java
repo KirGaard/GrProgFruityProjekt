@@ -18,7 +18,7 @@ public class UserDatabase {
 
     public User getUser(String name){
         for(User user : users){
-            if (user.getName().equals(name)){
+            if (user.getName().equals(name.toLowerCase())){
                 return user;
             }
         }
@@ -28,7 +28,7 @@ public class UserDatabase {
     public boolean ContainsUser(String name){
         boolean found = false;
 
-        for (User user : users) if (user.getName().equals(name)) found = true;
+        for (User user : users) if (user.getName().equals(name.toLowerCase())) found = true;
 
         return found;
     }
@@ -44,6 +44,8 @@ public class UserDatabase {
         if (!ContainsUser(user.getName())) throw new UserNotInDatabaseException(user);
         JSONParser.deleteUser(user.getName());
         users.remove(user);
+        saveDatabase();
     }
+
 
 }
