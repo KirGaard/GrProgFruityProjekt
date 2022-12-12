@@ -1,6 +1,8 @@
 package Test;
 
+import DataAccess.DataAccessor;
 import Database.UserDatabase;
+import User.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,22 +23,11 @@ class UserDatabaseTest {
     }
 
     @Test
-    void addUserWhenUserIsNullTest() {
-
-    }
-
-    @Test
     void addUserWhenUserExistsTest() {
-
     }
 
     @Test
     void addUserWhenUsernameExistsTest() {
-
-    }
-
-    @Test
-    void addUserWhenUsernameIsNullTest() {
 
     }
 
@@ -47,9 +38,11 @@ class UserDatabaseTest {
 
     @Test
     void saveDatabase() {
+
     }
 
     @Test
-    void deleteUser() {
+    void deleteWhenUsernameDoesNotExistsTest() {
+
     }
 }
