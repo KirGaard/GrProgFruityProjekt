@@ -23,22 +23,16 @@ class MediaDatabaseTest {
 
     @Test
     void titleNotInMediaTest() {
-        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
-                mediaDatabase.getMediaByTitle("Avatar 2"));
-        assertEquals("Avatar 2", exception.getMessage());
+        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("Avatar 2"));
     }
 
     @Test
     void titleCapitalizationTest() {
-        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
-                mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
-        assertEquals("raIderS oF ThE loST ARK", exception.getMessage());
+        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
     }
 
     @Test
     void titleLetterSpacesTest() {
-        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
-                mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
-        assertEquals("RaidersOfTheLostArk", exception.getMessage());
+        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
     }
 }
