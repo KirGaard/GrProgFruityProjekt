@@ -2,7 +2,7 @@ package Test;
 
 import DataAccess.DataAccessor;
 import Database.UserDatabase;
-import Presentation.Login.InvalidUserException;
+import Presentation.Login.Exceptions.UsernameAlreadyExistsException;
 import User.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,7 @@ class UserDatabaseTest {
     @Test
     void addUserWhenUserExistsTest() {
         userDatabase.addUser(user);
-        assertThrows(InvalidUserException.class, () -> userDatabase.addUser(user));
+        assertThrows(UsernameAlreadyExistsException.class, () -> userDatabase.addUser(user));
     }
 
     @Test
