@@ -17,7 +17,7 @@ public class RatingSearcher extends Searcher{
     public List<Media> Search(String searchTerm) {
         HashSet<Media> matchingMedia = new HashSet<Media>();
 
-        Pattern pattern = Pattern.compile("[0-9]+\\.[0-9]*");
+        Pattern pattern = Pattern.compile("[0-9]+\\.[0-9]*|[0-9]+");
         Matcher matcher = pattern.matcher(searchTerm);
 
         if (!matcher.find()) return matchingMedia.stream().toList();

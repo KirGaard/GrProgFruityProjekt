@@ -54,7 +54,7 @@ public class OverviewController implements IController {
         List<Media> allMedia = mediaDatabase.getAllMedia();
         Collections.shuffle(allMedia);
 
-        createNewMediaRows(allMedia);
+        createSortedNewMediaRows(allMedia);
 
     }
 
@@ -62,13 +62,13 @@ public class OverviewController implements IController {
     public void createShowRows(){
         titleLabel.setText("Serier:");
         List<Media> allSeries = mediaDatabase.getShows();
-        createNewMediaRows(allSeries);
+        createSortedNewMediaRows(allSeries);
     }
     @FXML
     public void createFilmRows(){
         titleLabel.setText("Film:");
         List<Media> allFilms = mediaDatabase.getFilms();
-        createNewMediaRows(allFilms);
+        createSortedNewMediaRows(allFilms);
     }
 
     @FXML
@@ -86,12 +86,13 @@ public class OverviewController implements IController {
                 throw new RuntimeException(e);
             }
         }
-        createNewMediaRows(favoriteMedia);
+        createNewUnsortedMediaRows(favoriteMedia);
     }
 
     @FXML
     public void search(){
         String query = searchField.getText();
+        titleLabel.setText("Resultater");
         HashSet<Media> results = new HashSet<Media>();
 
         GenreSearcher genreSearcher = new GenreSearcher(mediaDatabase.getAllMedia());
@@ -100,7 +101,10 @@ public class OverviewController implements IController {
         TitleSearcher titleSearcher = new TitleSearcher(mediaDatabase.getAllMedia());
         results.addAll(titleSearcher.Search(query));
 
-        createNewMediaRows(results.stream().toList());
+        RatingSearcher ratingSearcher = new RatingSearcher(mediaDatabase.getAllMedia());
+        results.addAll(ratingSearcher.Search(query));
+
+        createNewUnsortedMediaRows(results.stream().toList());
     }
 
     @Override
@@ -108,8 +112,36 @@ public class OverviewController implements IController {
         Main.signOut();
     }
 
+    private void createNewUnsortedMediaRows(List<Media> allMedia){
+        // We only show at max the 40 first elements of the allMedia list
+        // We also only show 4 elements per row
+        // This method is only called from search and favorites
+        // And we do not expect somebody to have more than 40 favorite media
 
-    private void createNewMediaRows(List<Media> allMedia){
+        ArrayList<MediaRowData> initialSetting = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            int remainingMediaCount = allMedia.size() - 4 * i;
+
+            if (remainingMediaCount <= 0){
+                initialSetting.add(new MediaRowData(new ArrayList<Media>(), ""));
+                continue;
+            }
+
+            int count = remainingMediaCount > 4 ? 4 : remainingMediaCount;
+            ArrayList<Media> media = new ArrayList<Media>();
+            for (int j = 0; j < count; j++) {
+                media.add(allMedia.get(4 * i + j));
+            }
+            initialSetting.add(new MediaRowData(media, ""));
+
+        }
+        updateMediaRows(initialSetting);
+    }
+
+    private void createSortedNewMediaRows(List<Media> allMedia){
+        // This method creates the media rows
+
+
         ArrayList<MediaRowData> initialSetting = new ArrayList<>();
         GenreSorter genreSorter = new GenreSorter(allMedia);
         genreSorter.sort();

@@ -7,6 +7,9 @@
     -fx-background-color: transparent;
     -fx-background-position: center;
 }
+.star:hover{
+    -fx-background-color: #212121;
+}
 .title{
     -fx-font-size: 38;
     -fx-text-fill: white;
@@ -15,7 +18,6 @@
 .inspection-label{
     -fx-font-size: 18;
     -fx-text-fill: white;
-    -fx-alignment: left;
 }
 .poster{
     -fx-background-image: url("Icons/arrow.png");

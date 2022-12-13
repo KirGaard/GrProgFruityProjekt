@@ -73,7 +73,7 @@ public class MediaRow {
         currentIndex = 0;
         displayMedia();
 
-        boolean scrollable = media.size() > 3;
+        boolean scrollable = media.size() > 4;
         rightButton.setVisible(scrollable);
         leftButton.setVisible(scrollable);
     }
