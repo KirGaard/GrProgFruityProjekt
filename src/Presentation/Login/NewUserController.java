@@ -1,16 +1,13 @@
 package Presentation.Login;
 
 import Presentation.IController;
-import Presentation.Main;
+import Presentation.MainGUI;
 import User.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +31,7 @@ private Label errorLabel;
         usernameField.setText("");
         passwordField.setText("");
 
-        if (Main.userDatabase.ContainsUser(username)){
+        if (MainGUI.userDatabase.ContainsUser(username)){
             errorLabel.setText("Navn eksisterer allerede!");
             return;
         }
@@ -54,9 +51,9 @@ private Label errorLabel;
         }
 
         User newUser = new User(username, password);
-        Main.userDatabase.addUser(newUser);
+        MainGUI.userDatabase.addUser(newUser);
 
-        Main.userCreationComplete();
+        MainGUI.userCreationComplete();
     }
 
 }

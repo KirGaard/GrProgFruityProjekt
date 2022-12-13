@@ -5,7 +5,6 @@ import Media.Media;
 import User.UserPrefs;
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,7 +13,7 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class MainGUI extends Application {
     private static Stage mainStage;
     private static Stage inspectionStage;
     private static Stage userCreationStage;
@@ -53,7 +52,7 @@ public class Main extends Application {
 
     public static void signIn() throws IOException {
         System.out.println("Signing in...");
-        Parent overviewRoot = FXMLLoader.load(Main.class.getResource("Overview/Overview.fxml"));
+        Parent overviewRoot = FXMLLoader.load(MainGUI.class.getResource("Overview/Overview.fxml"));
 
         mainStage.setTitle("Overview");
         mainStage.setScene(new Scene(overviewRoot));
@@ -68,7 +67,7 @@ public class Main extends Application {
     public static void inspectMedia(Media media) throws IOException {
         inspectionStage.setTitle(media.getTitle());
         UserPrefs.selectedMedia = media;
-        Parent root = FXMLLoader.load(Main.class.getResource("Inspection/Inspection.fxml"));
+        Parent root = FXMLLoader.load(MainGUI.class.getResource("Inspection/Inspection.fxml"));
 
         inspectionStage.setScene(new Scene(root));
         inspectionStage.setMaximized(false);
@@ -79,7 +78,7 @@ public class Main extends Application {
 
         Parent root;
         try {
-            root = FXMLLoader.load(Main.class.getResource("Login/NewUser.fxml"));
+            root = FXMLLoader.load(MainGUI.class.getResource("Login/NewUser.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -95,7 +94,7 @@ public class Main extends Application {
     public static void signOut(){
         Parent root;
         try {
-            root = FXMLLoader.load(Main.class.getResource("Login/Login.fxml"));
+            root = FXMLLoader.load(MainGUI.class.getResource("Login/Login.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

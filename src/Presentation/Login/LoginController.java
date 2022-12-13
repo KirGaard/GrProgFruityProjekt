@@ -2,24 +2,15 @@ package Presentation.Login;
 
 import Database.UserDatabase;
 import Presentation.IController;
-import Presentation.Main;
+import Presentation.MainGUI;
 import User.UserPrefs;
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Window;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 
 public class LoginController implements IController {
@@ -37,14 +28,14 @@ public class LoginController implements IController {
 
     @FXML
     public void initialize() {
-        userDatabase = Main.userDatabase;
+        userDatabase = MainGUI.userDatabase;
         System.out.println("Initializing LOGIN");
         wrongInput.setVisible(false);
     }
 
     @FXML
     private void signUp() {
-        Main.createNewUser();
+        MainGUI.createNewUser();
     }
 
     @FXML
@@ -63,7 +54,7 @@ public class LoginController implements IController {
         }
         UserPrefs.currentUser = userDatabase.getUser(username);
         try {
-            Main.signIn();
+            MainGUI.signIn();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

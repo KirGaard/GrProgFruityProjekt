@@ -13,7 +13,6 @@ import java.util.List;
 public class JSONParser {
     private static final String filmPath = "Data/parsedFilm.json";
     private static final String showPath = "Data/parsedSeries.json";
-
     private static final String usersPath = "Data/Users/";
 
     private class FilmStorer{
@@ -48,6 +47,11 @@ public class JSONParser {
     public static List<User> loadUsers(){
         File userFolder = new File(usersPath);
         File[] listOfUserFiles = userFolder.listFiles();
+        if (listOfUserFiles == null){
+            userFolder.mkdirs();
+        }
+        listOfUserFiles = userFolder.listFiles();
+
         Gson parser = new Gson();
 
         List users = new ArrayList<User>();

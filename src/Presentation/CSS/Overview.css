@@ -65,4 +65,9 @@
     -fx-text-fill: white;
     -fx-text-alignment: left;
 }
+.GUIElement-title{
+    -fx-font-size: 24;
+    -fx-text-fill: #E73D94;
+    -fx-underline: true;
+}
 

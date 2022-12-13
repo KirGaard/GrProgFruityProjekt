@@ -4,10 +4,9 @@ import Database.MediaDatabase;
 import Database.MediaNotInDatabaseException;
 import Media.Media;
 import Presentation.IController;
-import Presentation.Main;
+import Presentation.MainGUI;
 import Searching.GenreSearcher;
 import Searching.RatingSearcher;
-import Searching.Searcher;
 import Searching.TitleSearcher;
 import Sorting.GenreSorter;
 import User.User;
@@ -109,7 +108,7 @@ public class OverviewController implements IController {
 
     @Override
     public void exit() {
-        Main.signOut();
+        MainGUI.signOut();
     }
 
     private void createNewUnsortedMediaRows(List<Media> allMedia){

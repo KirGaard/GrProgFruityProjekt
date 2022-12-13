@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: Presentation.Launcher
+Class-Path: gson-2.10.jar javafx-swt.jar javafx.web.jar javafx.base.jar 
+ javafx.fxml.jar javafx.media.jar javafx.swing.jar javafx.controls.jar j
+ avafx.graphics.jar
+
