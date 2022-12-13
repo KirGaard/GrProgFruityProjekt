@@ -2,15 +2,24 @@ package Presentation.Login;
 
 import Database.UserDatabase;
 import Presentation.IController;
-import Presentation.MainGUI;
+import Presentation.Main;
 import User.UserPrefs;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Window;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 
 public class LoginController implements IController {
@@ -45,7 +54,7 @@ public class LoginController implements IController {
 
         try {
             validateLogin(username, password);
-        } catch (InvalidUserException e) {
+        } catch (InvalidInputException e) {
             usernameField.setText("");
             passwordField.setText("");
             wrongInput.setVisible(true);
@@ -60,10 +69,10 @@ public class LoginController implements IController {
         }
     }
 
-    private void validateLogin(String username, String password) throws InvalidUserException {
+    private void validateLogin(String username, String password) throws InvalidInputException {
 
-        if (!userDatabase.ContainsUser(username)) { throw new InvalidUserException(); }
-        if (!userDatabase.getUser(username).getPassword().equals(password)) { throw new InvalidUserException(); }
+        if (!userDatabase.ContainsUser(username)) { throw new InvalidInputException(); }
+        if (!userDatabase.getUser(username).getPassword().equals(password)) { throw new InvalidInputException(); }
     }
 
 }
