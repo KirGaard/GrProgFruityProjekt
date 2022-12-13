@@ -1,14 +1,15 @@
 # GrProgFruityProjekt
-To download the working build of this project
-Go to the Build directory and down the "FruityBuild" directory.
+
+This project is an exam project for the ITU Software Development Bachelor. Semester 1. course "Grundlæggende Programmering". 
+This project is our take on creating a streaming service. (Which can do almost everything but stream movies).
+This project uses the java SDK version 19.0.1. And was made with the JavaFX Framework.
+
+
+To download the working build of this project, go to the Build directory and down the "FruityBuild" directory.
 To run the project open and execute the run.bat file
 
-If the project encounters an error whilst opening after running the .bat file
-or it just closes immediatly.
-
-You are probably missing the right version of java
-This project uses the java SDK version 19.0.1
-If this does not work. Try running run.bat from the command line, this should print it's error.
+If the project encounters an error whilst opening after running the .bat file or it just closes immediatly. You are probably missing the right version of java.
+Try downloading the correct version. If this does not work, try running run.bat from the command line, this should print it's error.
 
 This project also implements the JavaFX framework to create it's GUI.
   - Though there is no need to worry about installing this. It is already included in the dependencies of the build.
@@ -34,4 +35,4 @@ This project also implements the JavaFX framework to create it's GUI.
 If all of this doesn't work
 Try reaching out to the creators of the project,
 using Google
-or Using ChatGPT
+or using ChatGPT
