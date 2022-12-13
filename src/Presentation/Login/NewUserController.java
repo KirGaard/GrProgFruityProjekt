@@ -1,6 +1,7 @@
 package Presentation.Login;
 
 import Presentation.IController;
+import Presentation.Login.Exceptions.UsernameAlreadyExistsException;
 import Presentation.Main;
 import User.User;
 import javafx.event.ActionEvent;
@@ -24,10 +25,14 @@ private Label errorLabel;
 
     @Override
     public void exit() {
-        CreateNewUser();
+        try {
+            CreateNewUser();
+        } catch (UsernameAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    private void CreateNewUser(){
+    private void CreateNewUser() throws UsernameAlreadyExistsException {
         String username = usernameField.getText().toLowerCase();
         String password = passwordField.getText();
 
@@ -36,7 +41,7 @@ private Label errorLabel;
 
         if (Main.userDatabase.ContainsUser(username)){
             errorLabel.setText("Navn eksisterer allerede!");
-            return;
+            throw new UsernameAlreadyExistsException();
         }
 
         Pattern legalPattern = Pattern.compile("^([a-z]|[0-9]|[?!])+$");
