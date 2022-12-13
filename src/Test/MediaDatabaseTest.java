@@ -35,4 +35,17 @@ class MediaDatabaseTest {
     void titleLetterSpacesTest() {
         assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
     }
+
+    @Test
+    void successfullyThrowsMediaNotInDataBaseExceptionIfTitleIncorrectlyCapitalized() {
+        Throwable exception = assertThrows(MediaNotInDatabaseException.class, () ->
+                mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
+        assertEquals("raIderS oF ThE loST ARK", exception.getMessage());
+        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
+    }
+
+    @Test
+    void titleLetterSpacesTest() {
+        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
+    }
 }
