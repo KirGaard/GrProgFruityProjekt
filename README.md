@@ -5,7 +5,10 @@ This project is our take on creating a streaming service. (Which can do almost e
 This project uses the java SDK version 19.0.1. And was made with the JavaFX Framework.
 
 
-To download the working build of this project, go to the Build directory and down the "FruityBuild" directory.
+To download the working build of this project go to the link 
+https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2FKirGaard%2FGrProgFruityProjekt%2Ftree%2Fmaster%2FBuild
+
+This is using DownGit to download the build folder from the project.
 To run the project open and execute the run.bat file
 
 If the project encounters an error whilst opening after running the .bat file or it just closes immediatly. You are probably missing the right version of java.
