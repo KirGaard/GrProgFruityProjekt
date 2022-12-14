@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="FruityGrProg">
+    <output-path>$PROJECT_DIR$/out/artifacts/FruityGrProg</output-path>
+    <root id="root">
+      <element id="archive" name="GrProgFruityProjekt.jar">
+        <element id="module-output" name="GrProgFruityProjekt" />
+      </element>
+      <element id="library" level="module" name="JUnit5.8.1" module-name="GrProgFruityProjekt" />
+      <element id="file-copy" path="$USER_HOME$/Downloads/gson-2.10.jar" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="module" name="JUnit4" module-name="GrProgFruityProjekt" />
+    </root>
+  </artifact>
+</component>

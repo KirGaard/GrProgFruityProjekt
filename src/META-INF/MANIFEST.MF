@@ -1,9 +1,6 @@
 Manifest-Version: 1.0
 Main-Class: Presentation.Launcher
-Class-Path: javafx-swt.jar javafx.web.jar javafx.base.jar javafx.fxml.ja
- r javafx.media.jar javafx.swing.jar javafx.controls.jar javafx.graphics
- .jar junit-4.13.1.jar hamcrest-core-1.3.jar gson-2.10.jar junit-jupiter
- -5.8.1.jar junit-jupiter-api-5.8.1.jar opentest4j-1.2.0.jar junit-platf
- orm-commons-1.8.1.jar apiguardian-api-1.1.2.jar junit-jupiter-params-5.
- 8.1.jar junit-jupiter-engine-5.8.1.jar junit-platform-engine-1.8.1.jar
+Class-Path: gson-2.10.jar javafx-swt.jar javafx.web.jar javafx.base.jar 
+ javafx.fxml.jar javafx.media.jar javafx.swing.jar javafx.controls.jar j
+ avafx.graphics.jar
 
