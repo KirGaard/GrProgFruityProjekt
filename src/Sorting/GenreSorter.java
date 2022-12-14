@@ -1,6 +1,8 @@
 package Sorting;
 
 import Media.Media;
+import Sorting.Exceptions.MediaListEmptyException;
+import Sorting.Exceptions.MediaListNullPointerException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +12,7 @@ import java.util.Map;
 public class GenreSorter extends Sorter{
     private HashMap<String, ArrayList<Media>> sortedMap;
 
-    public GenreSorter(List<Media> unsortedMediaList) {
+    public GenreSorter(List<Media> unsortedMediaList) throws MediaListNullPointerException, MediaListEmptyException {
         super(unsortedMediaList);
         sortedMap = new HashMap<>();
     }
