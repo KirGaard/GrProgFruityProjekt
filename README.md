@@ -6,10 +6,11 @@ This project uses the java SDK version 19.0.1. And was made with the JavaFX Fram
 
 
 To download the working build of this project go to the link 
-https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2FKirGaard%2FGrProgFruityProjekt%2Ftree%2Fmaster%2FBuild
+https://drive.google.com/file/d/1tyw_50GexyUOtQfzq3KVoE2a0yV0AiOH/view?usp=share_link
 
-This is using DownGit to download the build folder from the project.
-To run the project open and execute the run.bat file
+This is using GoogleDrive (We are working on a better fix) to download the build folder from the project.
+To run the project open and execute the run.bat file.
+Just make sure to actually download the file to your PC, instead of just opening the files in Google Drive.
 
 If the project encounters an error whilst opening after running the .bat file or it just closes immediatly. You are probably missing the right version of java.
 Try downloading the correct version. If this does not work, try running run.bat from the command line, this should print it's error.
