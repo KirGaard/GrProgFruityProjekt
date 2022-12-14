@@ -4,9 +4,10 @@ import Database.MediaDatabase;
 import Database.MediaNotInDatabaseException;
 import Media.Media;
 import Presentation.IController;
-import Presentation.MainGUI;
+import Presentation.Main;
 import Searching.GenreSearcher;
 import Searching.RatingSearcher;
+import Searching.Searcher;
 import Searching.TitleSearcher;
 import Sorting.GenreSorter;
 import User.User;
@@ -94,14 +95,47 @@ public class OverviewController implements IController {
         titleLabel.setText("Resultater");
         HashSet<Media> results = new HashSet<Media>();
 
-        GenreSearcher genreSearcher = new GenreSearcher(mediaDatabase.getAllMedia());
-        results.addAll(genreSearcher.Search(query));
+        GenreSearcher genreSearcher = null;
+        try {
+            genreSearcher = new GenreSearcher(mediaDatabase.getAllMedia());
+        } catch (MediaListNullPointerException e) {
+            throw new RuntimeException(e);
+        } catch (MediaListEmptyException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            results.addAll(genreSearcher.Search(query));
+        } catch (NullQueryException e) {
+            throw new RuntimeException(e);
+        }
 
-        TitleSearcher titleSearcher = new TitleSearcher(mediaDatabase.getAllMedia());
-        results.addAll(titleSearcher.Search(query));
+        TitleSearcher titleSearcher = null;
+        try {
+            titleSearcher = new TitleSearcher(mediaDatabase.getAllMedia());
+        } catch (MediaListNullPointerException e) {
+            throw new RuntimeException(e);
+        } catch (MediaListEmptyException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            results.addAll(titleSearcher.Search(query));
+        } catch (NullQueryException e) {
+            throw new RuntimeException(e);
+        }
 
-        RatingSearcher ratingSearcher = new RatingSearcher(mediaDatabase.getAllMedia());
-        results.addAll(ratingSearcher.Search(query));
+        RatingSearcher ratingSearcher = null;
+        try {
+            ratingSearcher = new RatingSearcher(mediaDatabase.getAllMedia());
+        } catch (MediaListNullPointerException e) {
+            throw new RuntimeException(e);
+        } catch (MediaListEmptyException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            results.addAll(ratingSearcher.Search(query));
+        } catch (NullQueryException e) {
+            throw new RuntimeException(e);
+        }
 
         createNewUnsortedMediaRows(results.stream().toList());
     }
@@ -142,7 +176,14 @@ public class OverviewController implements IController {
 
 
         ArrayList<MediaRowData> initialSetting = new ArrayList<>();
-        GenreSorter genreSorter = new GenreSorter(allMedia);
+        GenreSorter genreSorter = null;
+        try {
+            genreSorter = new GenreSorter(allMedia);
+        } catch (MediaListNullPointerException e) {
+            throw new RuntimeException(e);
+        } catch (MediaListEmptyException e) {
+            throw new RuntimeException(e);
+        }
         genreSorter.sort();
 
         // Making the sorted hashmap iterable
