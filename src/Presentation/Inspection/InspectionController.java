@@ -42,6 +42,8 @@ public class InspectionController implements IController {
 
     @FXML
     private Label type;
+    @FXML
+    private Button play;
 
     @FXML
     public void initialize() {
@@ -101,5 +103,9 @@ public class InspectionController implements IController {
 
         String pathToCSSDir = favoriteButton.getStylesheets().get(0).replaceAll("/Inspection.css", ""); // Gets the path from the stylesheet which was set in Scenebuilder
         return "-fx-background-image: url(\'" + pathToCSSDir + "/"+ path + "\')";
+    }
+    @FXML
+    public void play(){
+        play.setStyle("-fx-background-color: white");
     }
 }
