@@ -10,18 +10,18 @@ import java.util.regex.Pattern;
 
 /**
  * @author Kasper, Victor
- * The following abstract class implements the searcher interface and has a method for creating a pattern
+ * The following abstract class implements the searcher interface and has a method for creating a pattern.
+ * This is the base for the implementation of the decorator pattern
  */
 
 public abstract class Searcher implements ISearcher{
     /**
-     * Instantiates list media list of type media
+     * list of all the media which should be searched
      */
     protected List<Media> mediaList;
 
     /**
-     *
-     * @param mediaList list of films or shows
+     * @param mediaList list of all the media which should be searched
      * @throws MediaListEmptyException in case media list is empty
      * @throws MediaListNullPointerException in case media list has null value
      */
@@ -35,11 +35,11 @@ public abstract class Searcher implements ISearcher{
         this.mediaList = mediaList;
     }
 
-    // Todo: ikke sikker hvad der sker her
     /**
-     *
-     * @param searchTerm
-     * @return
+     * This method takes a search term and creates a waterfall regex pattern
+     * This pattern is then used in the decorators to find matches
+     * @param searchTerm The term which we want to search for
+     * @return We return the compiled pattern to use with a Matcher
      */
     protected Pattern CreatePattern(String searchTerm){
         StringBuilder stringPattern = new StringBuilder();

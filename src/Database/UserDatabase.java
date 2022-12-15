@@ -24,11 +24,11 @@ public class UserDatabase {
 
         users = dataAccessor.getUsers();
     }
-    //TODO: Er ikke sikker på denne JavaDoc er rigtig.
     /**
-     * A method used by the LoginController to get a user from the database when you are trying to log in as that user.
+     * A method used by the LoginController.
+     * Gets the user in the database by the username
      * @param name the username of the user.
-     * @return returns the user that you are trying to log in as.
+     * @return returns the user that matches the name param
      * If username is not in the database, it will throw a RuntimeException.
      */
     public User getUser(String name){
@@ -43,7 +43,7 @@ public class UserDatabase {
     /**
      * A method used by both the LoginController and NewUserController. When you are trying to log in or create a user, it checks to see if that user exists. If you are trying to create a user and the user already exits, then it will throw a UsernameAlreadyExistsException.
      * @param name the username of the user you are trying to log in as or create.
-     * @return found, which is true if the user exists and false if the user does not exists.
+     * @return found, which is true if the user exists and false if the user does not exist.
      */
     public boolean ContainsUser(String name){
         boolean found = false;
@@ -61,9 +61,10 @@ public class UserDatabase {
         users.add(user);
         saveDatabase();
     }
-    //TODO: Er ikke helt sikker her.
     /**
      * Saves the runtime database.
+     * Calls the JSONParser to save and serialize every user in the database.
+     * This method must be called when the program closes otherwise there could be a data loss
      */
     public void saveDatabase(){
         users.forEach(user -> JSONParser.saveUser(user));

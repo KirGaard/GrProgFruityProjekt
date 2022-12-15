@@ -44,8 +44,4 @@ class MediaDatabaseTest {
         assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("raIderS oF ThE loST ARK"));
     }
 
-    @Test
-    void titleLetterSpacesTest() {
-        assertThrows(MediaNotInDatabaseException.class, () -> mediaDatabase.getMediaByTitle("RaidersOfTheLostArk"));
-    }
 }

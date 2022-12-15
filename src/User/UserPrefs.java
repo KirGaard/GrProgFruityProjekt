@@ -1,17 +1,17 @@
 package User;
 
 import Media.Media;
-//TODO: Er ikke sikker på om det jeg har skrevet er rigtigt.
 /**
  * Stores the runtime users preferences.
  */
 public class UserPrefs {
     /**
-     * Stores the runtime user.
+     * Stores the runtime user. For use in the OverviewController
      */
     public static User currentUser;
+
     /**
-     * Stores the runtime selected media.
+     * Stores the runtime selected media. For use in the InspectionController
      */
     public static Media selectedMedia;
 

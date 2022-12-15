@@ -13,12 +13,32 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
+/**
+ * This class is where the MainGUI is handled.
+ * This class is responsible for storing the main user database and responsible for the scene handling
+ */
 public class MainGUI extends Application {
+    /**
+     * The main stage of the program. This is the Stage Login and Overview uses
+     */
     private static Stage mainStage;
+    /**
+     * The stage used in the inspection
+     */
     private static Stage inspectionStage;
+    /**
+     * The stage used in the user creation
+     */
     private static Stage userCreationStage;
+    /**
+     * The main user database which is saved when to program closes
+     */
     public static UserDatabase userDatabase;
 
+    /**
+     * This method instantiates the main UserDatabase and launches the JavaFX application
+     * @param args program arguments
+     */
     public static void main(String[] args) {
         userDatabase = new UserDatabase();
         launch(args);
@@ -26,13 +46,15 @@ public class MainGUI extends Application {
     }
 
     /**
-     * @param stage
-     * @throws Exception
+     * This method is called from the JavaFX application when the programs start.
+     * Here we load the Login Fxml file and create all the stages.
+     * We handle the user database saving on close
+     * @param stage The main stage of the program passed down from the application
+     * @throws Exception Propagated down from parent class
      */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Login/Login.fxml"));
-        //root.getStylesheets().add(getClass().getResource("CSS/Overview.css").toString());
 
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
@@ -50,6 +72,11 @@ public class MainGUI extends Application {
         });
     }
 
+    /**
+     * This function is called when the user has succesfully logged in
+     * This function sets the new scene to the Overview.fxml and maximazes the window
+     * @throws IOException if the fxml file is not found
+     */
     public static void signIn() throws IOException {
         System.out.println("Signing in...");
         Parent overviewRoot = FXMLLoader.load(MainGUI.class.getResource("Overview/Overview.fxml"));
@@ -64,6 +91,13 @@ public class MainGUI extends Application {
         mainStage.show();
 
     }
+
+    /**
+     * This function is called when the user inspects a media
+     * Opens and sets the stage for the Inspection.fxml file
+     * @param media
+     * @throws IOException
+     */
     public static void inspectMedia(Media media) throws IOException {
         inspectionStage.setTitle(media.getTitle());
         UserPrefs.selectedMedia = media;
@@ -73,6 +107,11 @@ public class MainGUI extends Application {
         inspectionStage.setMaximized(false);
         inspectionStage.show();
     }
+
+    /**
+     * This function is called when the user pressed the "Ny Bruger" button in the Login scene
+     * This function opens and sets the stage for the NewUser.fxml file
+     */
     public static void createNewUser(){
         userCreationStage.setTitle("Ny Bruger");
 
@@ -87,10 +126,17 @@ public class MainGUI extends Application {
         userCreationStage.show();
     }
 
+    /**
+     * This function hides the userCreationStage when a new user has been successfully created
+     */
     public static void userCreationComplete(){
         userCreationStage.hide();
     }
 
+    /**
+     * This function is called from the overview scene when the user tries to log out
+     * This function opens and sets the stage for the Login.fxml scene
+     */
     public static void signOut(){
         Parent root;
         try {

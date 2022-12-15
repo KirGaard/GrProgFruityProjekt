@@ -34,14 +34,14 @@ public class JSONParser {
     private static final String usersPath = "Data/Users/";
 
     /**
-     * Method that instantiates a list with the type Film and used to store films in the list
+     * Class used for the deserialization of the film .json file
      */
     private class FilmStorer{
         List<Film> list;
     }
 
     /**
-     * Same as above but with shows
+     * Class used for the deserialization of the show .json file
      */
     private class ShowStorer{
         List<Show> list;
@@ -49,9 +49,8 @@ public class JSONParser {
 
 
     /**
-     * The following method loads the list of films by reading the file of films
-     * Then parsing the file of films into .json file and adding all the titles of films to an ArrayList media
-     * @return list of all films
+     * The following method loads the list of films by deserializing the .json file into a FilmStorer
+     * @return the list of all films as media from the FilmStorer
      */
     public static List<Media> loadFilms(){
         Gson parser = new Gson();
@@ -64,8 +63,8 @@ public class JSONParser {
     }
 
     /**
-     * Same as above but with shows
-     * @return list of all shows
+     * The following method loads the list of shows by deserializing the .json file into a ShowStorer
+     * @return the list of all films as media from the Showtorer
      */
     public static List<Media> loadShows(){
         Gson parser = new Gson();
@@ -77,9 +76,9 @@ public class JSONParser {
         return media;
     }
 
-    // Todo: Hjælp her :/
     /**
-     * The following methods loads users by
+     * The following methods loads users by using a Gson parser to deserialize the .json files to User instances
+     * The function also creates a new folder if one is missing.
      * @return list of users
      */
     public static List<User> loadUsers(){
@@ -103,7 +102,7 @@ public class JSONParser {
     }
 
     /**
-     * The following method saves a user by writing a .json file with the user's information
+     * The following method saves a user by serializing the user object to a .json file
      * @param user the user that needs to be saved
      */
     public static void saveUser(User user){
@@ -115,7 +114,7 @@ public class JSONParser {
     }
 
     /**
-     * The following method deletes a user by replacing the .json file for that user with an empty file
+     * The following method deletes a user file
      * Throws exception if user doesn't exist
      * @param userName the user that needs to be deleted
      */

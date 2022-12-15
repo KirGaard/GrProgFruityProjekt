@@ -10,17 +10,53 @@ import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the graphical and logical representation of a row filled with media
+ */
 public class MediaRow {
+    /**
+     * The media which is contained in the row
+     */
     private ArrayList<Media> media;
+    /**
+     * A reference to the GUIElements
+     */
     private  MediaGUIElement[] GUIElements;
+    /**
+     * The GridPane containing the arrows and the GUIElemetns
+     */
     private GridPane container;
+    /**
+     * The content pane which is every MediaRows parent
+     * This is also the scrollable pane
+     */
     private GridPane contentPane;
+    /**
+     * The current index from which we display the media from the ArrayList in the MediaGUIElements
+     */
     private int currentIndex;
-
+    /**
+     * The left arrow Button
+     */
     private Button leftButton;
+    /**
+     * The right arrow Button
+     */
     private Button rightButton;
+    /**
+     * The title Label
+     */
     private Label titleLabel;
 
+    /**
+     * The constructor creates and instantiates all the GUI Objects
+     * It also creates all the EventHandlers for the arrows
+     * Ends with displaying the media and checking if the row is scrollable
+     * @param label The title which should be displayed in the titleLabel
+     * @param media An ArrayList with the media which should be displayed
+     * @param container The container for all the objects the row creates
+     * @param contentPane The parent ScrollablePane which holds all the content
+     */
     public MediaRow(String label, ArrayList<Media> media, GridPane container, GridPane contentPane) {
         this.contentPane = contentPane;
         this.container = container;
@@ -63,10 +99,19 @@ public class MediaRow {
         leftButton.setVisible(scrollable);
     }
 
+    /**
+     * Hides or shows the container
+     * @param visible showe or hide
+     */
     public void setVisible(boolean visible){
         container.setVisible(visible);
     }
 
+    /**
+     * Updates the media which should be displayed in the GUIelements and the text in the title.
+     * Resets the currentIndex to 0, and checks if the row is scrollable
+     * @param mediaRowData
+     */
     public void updateMedia(MediaRowData mediaRowData){
         titleLabel.setText(mediaRowData.getTitle());
         media = mediaRowData.getMedia();
@@ -78,6 +123,11 @@ public class MediaRow {
         leftButton.setVisible(scrollable);
     }
 
+    /**
+     * Displays the correct media in the GUIElements
+     * We start by displaying from the current index in the media ArrayList
+     * if we overflow when we update the index, we go from 0
+     */
     private void displayMedia(){
         for (int i = 0; i < 4; i++) {
             if (i >= media.size()){
@@ -95,6 +145,12 @@ public class MediaRow {
 
     }
 
+    /**
+     * updates the current index to fit the direction the user is scrolling
+     * If the currentIndex overflows it is set to 0 or the max - depending on dir
+     * This makes the MediaRow scrollable forever since it repeats when it reaches the end
+     * @param dir the direction the user wants to swipe -1 for left and 1 for right
+     */
     private void swipe(int dir){
         currentIndex += dir;
         if (currentIndex >= media.size()) currentIndex = 0;

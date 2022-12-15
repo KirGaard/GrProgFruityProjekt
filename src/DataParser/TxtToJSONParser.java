@@ -43,16 +43,10 @@ public class TxtToJSONParser {
             };
             for (int i = 0; i < categories.length; i++) {
                 jsonString += '"' + categories[i] + '"' + ":";
-                switch (i){
-                    case 0:
-                        jsonString += getString(DataElements[i]);
-                        break;
-                    case 2:
-                        jsonString += getList(DataElements[i]);
-                        break;
-                    default:
-                        jsonString += getNumber(DataElements[i]);
-                        break;
+                switch (i) {
+                    case 0 -> jsonString += getString(DataElements[i]);
+                    case 2 -> jsonString += getList(DataElements[i]);
+                    default -> jsonString += getNumber(DataElements[i]);
                 }
                 if (i < categories.length - 1) jsonString += ",";
 
@@ -92,16 +86,10 @@ public class TxtToJSONParser {
             };
             for (int i = 0; i < categories.length; i++) {
                 jsonString += '"' + categories[i] + '"' + ":";
-                switch (i){
-                    case 0: case 1:
-                        jsonString += getString(dataElements[i]);
-                        break;
-                    case 2: case 4:
-                        jsonString += getList(dataElements[i]).replaceAll("[0-9]-", "");
-                        break;
-                    default:
-                        jsonString += getNumber(dataElements[i]);
-                        break;
+                switch (i) {
+                    case 0, 1 -> jsonString += getString(dataElements[i]);
+                    case 2, 4 -> jsonString += getList(dataElements[i]).replaceAll("[0-9]-", "");
+                    default -> jsonString += getNumber(dataElements[i]);
                 }
                 if (i < categories.length - 1) jsonString += ",";
             }
@@ -118,7 +106,7 @@ public class TxtToJSONParser {
     /**
      * The following method gets the String element in the .json file
      * @param element category that we want to get "release", "title" etc
-     * @return element with space
+     * @return element with surrounded with double quotes
      */
 
     private static String getString(String element) {
@@ -126,12 +114,11 @@ public class TxtToJSONParser {
 
     }
 
-    // Todo: ved ikke hvad der sker her
     /**
-     * The following method gets the number of category
+     * The following method gets the rating number by replacing the comma with a decimal point
      * Replaces all "." with ","
      * @param element category we want to
-     * @return
+     * @return The element string as a valid number to parse as a double
      */
 
     private static String getNumber(String element) {

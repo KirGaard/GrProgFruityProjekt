@@ -1,9 +1,8 @@
 package Media;
 
 import java.util.List;
-//TODO: Nåede ikke at skrive færdigt på den her.
 /**
- * An abstract class containing all the thing that Film and show have
+ * An abstract class containing all the thing that fields that both Media and Show contains
  */
 public abstract class Media {
     protected String posterPath;
@@ -12,6 +11,9 @@ public abstract class Media {
     protected double rating;
     protected List<String> genre;
 
+    /**
+     * @return Returns the specifically formatted info
+     */
     public abstract String getInfo();
     public String getTitle() {
         return title;

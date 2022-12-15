@@ -1,5 +1,4 @@
 package Database;
-//TODO: Har jeg skrevet denne JavaDoc på Exception rigtigt?
 /**
  * A custom Exception that gets thrown when you try to get the title of a media that is not in the database.
  */
