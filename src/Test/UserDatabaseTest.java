@@ -2,6 +2,7 @@ package Test;
 
 import DataAccess.DataAccessor;
 import Database.UserDatabase;
+import Database.UserNotInDatabaseException;
 import Presentation.Login.Exceptions.UsernameAlreadyExistsException;
 import User.User;
 import org.junit.jupiter.api.AfterEach;

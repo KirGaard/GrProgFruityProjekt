@@ -1,7 +1,10 @@
 package Media;
 
 import java.util.List;
-
+//TODO: Nåede ikke at skrive færdigt på den her.
+/**
+ * An abstract class containing all the thing that Film and show have
+ */
 public abstract class Media {
     protected String posterPath;
     protected String title;
