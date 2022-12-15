@@ -11,7 +11,7 @@
     -fx-background-color: #212121;
 }
 .title{
-    -fx-font-size: 26;
+    -fx-font-size: 38;
     -fx-text-fill: white;
     -fx-text-alignment: left;
 }
@@ -24,4 +24,15 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: 200;
+}
+.play-button{
+    -fx-background-image: url("Icons/PlayButton.png");
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 80;
+}
+.play-button:hover{
+    -fx-background-image: url("Icons/PlayButtonRed.png");
+
 }

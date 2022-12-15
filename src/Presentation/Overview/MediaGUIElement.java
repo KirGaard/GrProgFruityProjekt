@@ -14,14 +14,39 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 
-public class MediaGUIElement implements IGUIElement{
+/**
+ * This class is responsible for creating and updating a GUIElement which displays an instance of a media
+ */
+public class MediaGUIElement {
+    /**
+     * The reference to the media currently displayed
+     */
     private Media media;
+    /**
+     * A reference the main button in the element
+     */
     private Button button;
+    /**
+     * A reference to the label which displays the title of media
+     */
     private Label title;
+
+    /**
+     * The constructor assigns the reference to the declaration
+     * @param media the first media to be displayed
+     */
     public MediaGUIElement(Media media){
         this.media = media;
     }
 
+    /**
+     * This method creates the GUIElement with all the components
+     * Creates all the minor objects and sets the correct layouts and styles to them
+     * Also correctly creates EventHandlers to handle the user clicking on the GUIElement
+     * @param parent The parent of the GUIElement - in truth this is the media row. Used to get the correct path to the style sheet
+     *               To help with the correct assignment of the .css
+     * @return
+     */
     public GridPane getGUIElement(GridPane parent){
         GridPane gridpane = new GridPane();
         gridpane.getRowConstraints().add(new RowConstraints(50, 50, 50));
@@ -76,10 +101,22 @@ public class MediaGUIElement implements IGUIElement{
 
         return gridpane;
     }
+
+    /**
+     * This method hides / shows the GUI objects
+     * @param visible if it should be visible or not
+     */
     public void setVisible(boolean visible){
         button.setVisible(visible);
         title.setVisible(false);
     }
+
+    /**
+     * Updates the media which should be displayed.
+     * Also updates all the graphical objects to display the new media
+     * Setting the style and setting the title
+     * @param media The new media to be displayed
+     */
     public void updateMedia(Media media){
         this.media = media;
 
@@ -87,6 +124,10 @@ public class MediaGUIElement implements IGUIElement{
         title.setText(media.getTitle());
     }
 
+    /**
+     * Sets the mouse events for the button
+     * Shows the title only when the button is hovered
+     */
     private void setMouseEvents(){
         button.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
